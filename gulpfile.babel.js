@@ -8,6 +8,7 @@ import panini   from 'panini';
 import rimraf   from 'rimraf';
 import yaml     from 'js-yaml';
 import fs       from 'fs';
+import ghPages  from 'gulp-gh-pages';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -30,6 +31,10 @@ gulp.task('build',
 // Build the site, run the server, and watch for file changes
 gulp.task('default',
   gulp.series('build', server, watch));
+
+// Build the site, run the server, and watch for file changes
+gulp.task('deploy',
+  gulp.series('build', deploy));
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -108,6 +113,14 @@ function images() {
     })))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
+
+// Copy images to the "dist" folder
+// In production, the images are compressed
+function deploy() {
+  return gulp.src(PATHS.dist)
+    .pipe(ghPages());
+}
+
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
