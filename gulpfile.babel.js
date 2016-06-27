@@ -117,7 +117,7 @@ function images() {
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function deploy() {
-  return gulp.src(PATHS.dist)
+  return gulp.src(PATHS.dist + '/**/*')
     .pipe(ghPages());
 }
 
