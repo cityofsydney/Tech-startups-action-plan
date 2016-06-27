@@ -1,0 +1,71 @@
+.header {
+    margin-bottom: 3em;
+    padding-top: 3em;
+    padding-bottom: 3em;
+
+    color: #fff;
+    background: $blue;
+}
+
+.logo {
+    margin-bottom: 10px;
+}
+
+.banner-image {
+    height: 300px;
+
+    background-image: url(../../assets/img/MuruD1h.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+h2 {
+    margin-bottom: .7em;
+}
+
+
+//md = mardown content
+//this is not picked up by uncss. so see config.yml where we exclude this from the uncss
+.md-lead-content p {
+    @extend .lead;
+}
+
+.md-lead-content a {
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.footer-bottom {
+    margin-top: 3em;
+    padding-top: 3em;
+    padding-bottom: 3em;
+
+    background: #f2f3f4;
+}
+
+
+.button {
+    font-weight: bold;
+
+    margin-bottom: 0;
+}
+
+/* Medium and up */
+@include breakpoint(medium) {
+    h1 {
+        line-height: 1;
+    }
+
+    .banner-image {
+        height: 400px;
+
+        background-position: center 70%;
+    }
+}
+
+.chart-container p {
+    margin-bottom: 0;
+}
+
