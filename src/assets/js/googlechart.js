@@ -63,7 +63,7 @@ var startInvestorChartHeader = "Events to connect tech startups with investors";
 
 
   //Suggested Location Chart
-var locationChartRange = "A184:B187";
+var locationChartRange = "A184:B188";
 var locationChartHeader = "Top 4 suggested locations %";
 
 //Chart Drawing Functions
