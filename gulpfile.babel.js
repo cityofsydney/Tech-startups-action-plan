@@ -119,7 +119,7 @@ function images() {
 function deploy() {
   return gulp.src(PATHS.dist + '/**/*')
      .pipe(ghPages({
-            remoteUrl: 'https://cityofsydney:1ef8eec95b3ae972516c88c5b4a2a5c705cc1361@github.com/cityofsydney/tech-startups-action-plan.git'
+            remoteUrl: 'https://cityofsydney:e63b8d88f4f8bc4cfc0e101f1adaab312baa49bc@github.com/cityofsydney/tech-startups-action-plan.git'
         }));
 }
 
