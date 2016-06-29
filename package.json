@@ -1,14 +1,14 @@
 {
-  "name": "foundation-zurb-template",
+  "name": "tech-startups-action-plan",
   "version": "1.0.0",
-  "description": "Official ZURB Template for Foundation for Sites.",
+  "description": "Based on the Official ZURB Template for Foundation for Sites.",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production", 
     "deploy": "gulp deploy --production"
   },
-  "author": "ZURB <foundation@zurb.com>",
+  "author": "City of Sydney <webmaster@cityofsydney.nsw.gov.au>",
   "license": "MIT",
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",

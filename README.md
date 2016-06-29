@@ -2,7 +2,7 @@
 
 [![Deployment status from DeployBot](https://cityofsydney.deploybot.com/badge/45290642051912/57356.svg)](http://deploybot.com)
 
-We use the  [Foundation for Sites](http://foundation.zurb.com/sites) framework to deliver static code to our production folder. It has a Gulp-powered build system with these features:
+We use the  [Foundation for Sites](http://foundation.zurb.com/sites) framework to deliver static code to our distribution folder. It has a Gulp-powered build system with these features:
 
 - Handlebars HTML templates with Panini
 - Sass compilation and prefixing
@@ -31,3 +31,4 @@ You now have all the necessary dependencies to run the build process.
 
 * `npm start` — For development , watch your project and incrementally rebuild it when source files are changed
 * `npm run build` — To create compressed, production-ready assets
+* `npm run deploy` — To Quickly deploy dist folder to gh-pages with gulp-gh-pages
