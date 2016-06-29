@@ -118,7 +118,9 @@ function images() {
 // In production, the images are compressed
 function deploy() {
   return gulp.src(PATHS.dist + '/**/*')
-     .pipe(ghPages());
+     .pipe(ghPages({
+       remoteUrl: 'https://cityofsydney@github.com/cityofsydney/tech-startups-action-plan.git'
+     }));
 }
 
 
