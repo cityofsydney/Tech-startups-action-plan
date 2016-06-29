@@ -1,8 +1,0 @@
-bower install
-npm install
-git config --global user.email "webmaster@cityofsydney.nsw.gov.au"
-git config --global user.name "cityofsydney"
-git config --global credential.helper cache
-git config --global credential.helper store
-git remote set-url origin https://github.com/cityofsydney/tech-startups-action-plan.git
-npm run deploy
