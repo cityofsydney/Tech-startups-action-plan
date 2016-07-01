@@ -10,6 +10,8 @@ import yaml     from 'js-yaml';
 import fs       from 'fs';
 import ghPages  from 'gulp-gh-pages';
 
+var github  = require('github');
+
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
@@ -119,7 +121,7 @@ function images() {
 function deploy() {
   return gulp.src(PATHS.dist + '/**/*')
      .pipe(ghPages({
-       remoteUrl: 'https://cityofsydney@github.com/cityofsydney/tech-startups-action-plan.git'
+       remoteUrl: 'https://' + github.access + '@github.com/cityofsydney/tech-startups-action-plan.git'
      }));
 }
 
