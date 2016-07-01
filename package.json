@@ -6,7 +6,8 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production", 
-    "deploy": "gulp deploy --production"
+    "deploy": "gulp deploy --production",
+    "deploybot": "gulp deploybot --production"
   },
   "author": "City of Sydney <webmaster@cityofsydney.nsw.gov.au>",
   "license": "MIT",
