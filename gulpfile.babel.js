@@ -10,8 +10,6 @@ import yaml     from 'js-yaml';
 import fs       from 'fs';
 import ghPages  from 'gulp-gh-pages';
 
-var github  = require('github');
-
 // Load all Gulp plugins into one variable
 const $ = plugins();
 
@@ -24,6 +22,14 @@ const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 function loadConfig() {
   let ymlFile = fs.readFileSync('config.yml', 'utf8');
   return yaml.load(ymlFile);
+}
+
+// Load settings from settings.yml
+const { ACCESS } = loadGithubConfig();
+
+function loadGithubConfig() {
+  let githubYmlFile = fs.readFileSync('github.yml', 'utf8');
+  return yaml.load(githubYmlFile);
 }
 
 // Build the "dist" folder by running all of the below tasks
@@ -121,7 +127,7 @@ function images() {
 function deploy() {
   return gulp.src(PATHS.dist + '/**/*')
      .pipe(ghPages({
-       remoteUrl: 'https://' + github.access + '@github.com/cityofsydney/tech-startups-action-plan.git'
+       remoteUrl: 'https://' + ACCESS + '@github.com/cityofsydney/tech-startups-action-plan.git'
      }));
 }
 
