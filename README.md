@@ -32,10 +32,5 @@ You now have all the necessary dependencies to run the build process.
 * `npm start` — For development , watch your project and incrementally rebuild it when source files are changed
 * `npm run build` — To create compressed, production-ready assets
 * `npm run deploy` — To Quickly deploy dist folder to gh-pages with gulp-gh-pages
+* `npm run deploybot` — Used by Deploybot to deploy dist folder to gh-pages
 
-### Dev notes
-* https://confluence.atlassian.com/bitbucketserver/permanently-authenticating-with-git-repositories-776639846.html
-
-* http://stackoverflow.com/questions/5343068/is-there-a-way-to-skip-password-typing-when-using-https-on-github
-
-* https://answers.squarespace.com/questions/4565/how-can-i-avoid-credentials-typing-on-every-git-push-pull.html
