@@ -16,7 +16,7 @@ const $ = plugins();
 // Check for --production flag
 const PRODUCTION = !!(yargs.argv.production);
 
-// Load settings from settings.yml
+// Load settings from config.yml
 const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
@@ -24,7 +24,8 @@ function loadConfig() {
   return yaml.load(ymlFile);
 }
 
-// Load settings from settings.yml
+
+// Deploybot has this github.yml stored as a configuration file.
 const { ACCESS } = loadGithubConfig();
 
 function loadGithubConfig() {
@@ -40,9 +41,13 @@ gulp.task('build',
 gulp.task('default',
   gulp.series('build', server, watch));
 
-// Build the site, run the server, and watch for file changes
+// Local deployment, Build the site, deploy to Github pages
 gulp.task('deploy',
   gulp.series('build', deploy));
+
+// Triggered by Deploybot, Build the site, deploy to Github pages
+gulp.task('deploybot',
+  gulp.series('build', deploybot));
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -75,8 +80,6 @@ function resetPages(done) {
   panini.refresh();
   done();
 }
-
-
 
 // Compile Sass into CSS
 // In production, the CSS is compressed
@@ -122,15 +125,19 @@ function images() {
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
-// Copy images to the "dist" folder
-// In production, the images are compressed
+// Deploys the "dist" folder to Github pages
 function deploy() {
+  return gulp.src(PATHS.dist + '/**/*')
+     .pipe(ghPages());
+}
+
+// Deploybot deploys the "dist" folder to Github pages with an access token from its github configuration file
+function deploybot() {
   return gulp.src(PATHS.dist + '/**/*')
      .pipe(ghPages({
        remoteUrl: 'https://' + ACCESS + '@github.com/cityofsydney/tech-startups-action-plan.git'
      }));
 }
-
 
 // Start a server with BrowserSync to preview the site in
 function server(done) {
